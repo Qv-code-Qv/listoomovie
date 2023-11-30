@@ -38,7 +38,7 @@
                 <div class="col-lg-2">
                     <div class="header__logo">
                         <a href="{{ route('home') }}">
-                            <img src="img/logo.png" alt="">
+                            <img src="img/logo2.png" alt="">
                         </a>
                     </div>
                 </div>

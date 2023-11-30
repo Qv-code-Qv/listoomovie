@@ -4,9 +4,6 @@
     'elementActive' => '',
 ])
 
-
-
-
 @section('content')
     @include('layouts.carousel')
     <section class="product spad">
