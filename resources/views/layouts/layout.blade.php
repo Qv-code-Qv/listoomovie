@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ url('css/nice-select.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/slicknav.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url('css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url('sass/style.css') }}" type="text/css">
 </head>
 
 <body>
@@ -46,8 +46,8 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li><a href="#">Movies</a></li>
-                                <li><a href="#">Series</a></li>
+                                <li><a href="{{ route('movies.movies.show') }}">Movies</a></li>
+                                <li ><a href="{{ route('series.series.show') }}">Series</a></li>
                             </ul>
                         </nav>
                     </div>

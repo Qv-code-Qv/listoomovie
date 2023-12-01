@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\movies\MoviesController;
+use App\Http\Controllers\series\SeriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,20 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-
+/*Home*/
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+/*Movies*/
+Route::group(['prefix' => 'movies'], function () {
+
+    Route::get('/', [MoviesController::class, 'show'])->name('movies.movies.show');
+
+});
+
+/*Series*/
+Route::group(['prefix' => 'series'], function () {
+
+    Route::get('/', [SeriesController::class, 'show'])->name('series.series.show');
+
+});
 
