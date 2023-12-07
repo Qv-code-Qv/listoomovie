@@ -1,6 +1,6 @@
-<div class="col-lg-4 col-md-6 col-sm-8">
-    <div class="product__sidebar">
-        <div class="product__sidebar__view">
+<div class="col-lg-4 col-md-6 col-sm-8" >
+    <div class="product__sidebar" style="background-color: #171717">
+        <div class="product__sidebar__view" >
             <div class="section-title">
                 <h5>Top Views</h5>
             </div>
