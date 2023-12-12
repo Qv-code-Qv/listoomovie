@@ -19,6 +19,9 @@ use App\Http\Controllers\series\SeriesController;
 /*Home*/
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
+
+
 /*Movies*/
 Route::group(['prefix' => 'movies'], function () {
 

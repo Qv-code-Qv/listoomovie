@@ -31,11 +31,14 @@
                                     <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                 </div>
                                 <div class="product__item__text">
+                                    <h1>Series Populaires</h1>
+
                                     <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
+                                        @foreach($series as $serie)
+
+                                            <li>{{ $serie->original_name}}</li>
+                                        @endforeach
                                     </ul>
-                                    <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
                                 </div>
                             </div>
                         </div>
