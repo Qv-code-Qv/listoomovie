@@ -31,12 +31,10 @@
                                     <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                 </div>
                                 <div class="product__item__text">
-                                    <h1>Series Populaires</h1>
 
                                     <ul>
-                                        @foreach($series as $serie)
-
-                                            <li>{{ $serie->original_name}}</li>
+                                        @foreach ($series as $serie)
+                                            <li>{{ $serie['name'] }}</li>
                                         @endforeach
                                     </ul>
                                 </div>

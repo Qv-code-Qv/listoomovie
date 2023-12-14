@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Http;
 
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
-        /**
+    /**
      * Page d'acceuil du site
      *
      * @use /
@@ -19,23 +20,32 @@ class HomeController extends Controller
      * @throws Exception
      */
 
-     protected $tmdbService;
+    protected $tmdbService;
 
 
 
-     public function index(){
+    public function index()
+    {
 
-        $results = [];
+        $token = env('TMDB_API_KEY');
+        $url = 'https://api.themoviedb.org/3/tv/popular';
 
-        $apiKey = config('app.tmdb_api_key');
-        $response = Http::get("https://api.themoviedb.org/3/tv/popular", [
-            'api_key' => $apiKey,
-        ]);
+        $client = new Client(); {
+            $response = $client->get($url, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $token,
+                    'Accept' => 'application/json',
+                ],
+            ]);
 
-        $series = $response->json($results);
+            $data = json_decode($response->getBody(), true);
 
-        return view('home', compact('series'));
+            // Maintenant, $data contient les séries populaires. Fais ce que tu veux avec les données.
 
-     }
+            response()->json($data);
 
+
+            return view('home', ['series' => $data['results']]);
+        }
+    }
 }
