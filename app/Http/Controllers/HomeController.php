@@ -2,11 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\TmdbService;
-use Illuminate\Support\Facades\Http;
-
-
-use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
 class HomeController extends Controller
@@ -20,32 +15,39 @@ class HomeController extends Controller
      * @throws Exception
      */
 
-    protected $tmdbService;
-
-
-
     public function index()
     {
 
         $token = env('TMDB_API_KEY');
-        $url = 'https://api.themoviedb.org/3/tv/popular';
+        $urlSeries = 'https://api.themoviedb.org/3/tv/popular?language=fr-FR';
+        $urlMovies = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR';
+
+        // Series populaire.
 
         $client = new Client(); {
-            $response = $client->get($url, [
+            $responseSeries = $client->get($urlSeries, [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $token,
                     'Accept' => 'application/json',
                 ],
             ]);
 
-            $data = json_decode($response->getBody(), true);
+            // Films populaire.
 
-            // Maintenant, $data contient les séries populaires. Fais ce que tu veux avec les données.
+            $responseMovies = $client->get($urlMovies, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $token,
+                    'Accept' => 'application/json',
+                ],
+            ]);
 
-            response()->json($data);
+            // Maintenant, on stocke les données des séries et des films populaires.
+
+            $dataSeries = json_decode($responseSeries->getBody(), true)['results'];
+            $dataMovies = json_decode($responseMovies->getBody(), true)['results'];
 
 
-            return view('home', ['series' => $data['results']]);
+            return view('home', ['series' => $dataSeries, 'movies' => $dataMovies]);
         }
     }
 }

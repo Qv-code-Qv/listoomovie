@@ -17,9 +17,13 @@ use App\Http\Controllers\series\SeriesController;
 */
 
 /*Home*/
-Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::group([], function () {
+
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
+});
 
 
 /*Movies*/
