@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Collection;
 
 class HomeController extends Controller
 {
@@ -43,8 +44,10 @@ class HomeController extends Controller
 
             // Maintenant, on stocke les données des séries et des films populaires.
 
-            $dataSeries = json_decode($responseSeries->getBody(), true)['results'];
-            $dataMovies = json_decode($responseMovies->getBody(), true)['results'];
+
+
+            $dataSeries = Collection::make(json_decode($responseSeries->getBody(), true)['results']);
+            $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true)['results']);
 
 
             return view('home', ['series' => $dataSeries, 'movies' => $dataMovies]);

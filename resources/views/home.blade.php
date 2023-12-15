@@ -29,11 +29,12 @@
                                 <div class="product__item__text">
 
                                     <ul>
-                                        @foreach ($series as $serie)
-                                            <img src="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}"
-                                                alt="{{ $serie['name'] }}">
-                                            <li>{{ $serie['name'] }}</li>
-                                        @endforeach
+                                        @foreach($series->take(8) as $serie)
+                                        <li>
+                                            <img src="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}" alt="{{ $serie['name'] }}">
+                                            {{ $serie['name'] }}
+                                        </li>
+                                    @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -59,7 +60,7 @@
                                 <div class="product__item__text">
                                     <ul>
 
-                                        @foreach ($movies as $movie)
+                                        @foreach ($movies->take(2) as $movie)
                                             <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
                                                 alt="{{ $movie['title'] }}">
                                             <li>{{ $movie['original_title'] }}</li>
