@@ -44,8 +44,6 @@ class HomeController extends Controller
 
             // Maintenant, on stocke les données des séries et des films.
 
-
-
             $dataSeries = Collection::make(json_decode($responseSeries->getBody(), true)['results']);
             $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true)['results']);
 
