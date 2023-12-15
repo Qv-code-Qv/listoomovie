@@ -20,10 +20,10 @@ class HomeController extends Controller
     {
 
         $token = env('TMDB_API_KEY');
-        $urlSeries = 'https://api.themoviedb.org/3/tv/popular?language=fr-FR';
-        $urlMovies = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR';
+        $urlSeries = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=fr-FR&page=1&sort_by=primary_release_date.desc';
+        $urlMovies = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_null_first_air_dates=false&language=fr-FR&page=1&sort_by=primary_release_date.desc';
 
-        // Series populaire.
+        // Series.
 
         $client = new Client(); {
             $responseSeries = $client->get($urlSeries, [
@@ -33,7 +33,7 @@ class HomeController extends Controller
                 ],
             ]);
 
-            // Films populaire.
+            // Films.
 
             $responseMovies = $client->get($urlMovies, [
                 'headers' => [
@@ -42,7 +42,7 @@ class HomeController extends Controller
                 ],
             ]);
 
-            // Maintenant, on stocke les données des séries et des films populaires.
+            // Maintenant, on stocke les données des séries et des films.
 
 
 
