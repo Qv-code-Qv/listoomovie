@@ -1,18 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Carousel;
+
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\View;
-
-
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class CarouselController extends Controller
 {
-        /**
+    /**
      * Page d'acceuil du site
      *
      * @use /
@@ -21,7 +18,8 @@ class CarouselController extends Controller
      * @throws Exception
      */
 
-     public function show(Request $request){
+    public function show(Request $request)
+    {
 
         $token = env('TMDB_API_KEY');
         $newSeries = 'https://api.themoviedb.org/3/tv/on_the_air'; // Endpoint pour les nouvelles séries
@@ -29,7 +27,7 @@ class CarouselController extends Controller
 
         // Series.
 
-        $client = new Client(); {
+        $client = new Client();{
             $responseSeries = $client->get($newSeries, [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $token,
@@ -51,18 +49,10 @@ class CarouselController extends Controller
             $dataSeries = Collection::make(json_decode($responseSeries->getBody(), true)['results']);
             $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true)['results']);
 
-
-
-
-            return view('home', ['newSeries' => $dataSeries, 'newMovies' => $dataMovies]);
-
-
-
+            view('layouts.carousel', ['newSeries' => $dataSeries, 'newMovies' => $dataMovies]);
 
         }
 
-
-
-     }
+    }
 
 }
