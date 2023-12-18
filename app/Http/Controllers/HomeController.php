@@ -25,7 +25,7 @@ class HomeController extends Controller
 
         // Series.
 
-        $client = new Client(); {
+        $client = new Client();{
             $responseSeries = $client->get($urlSeries, [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $token,
@@ -47,8 +47,11 @@ class HomeController extends Controller
             $dataSeries = Collection::make(json_decode($responseSeries->getBody(), true)['results']);
             $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true)['results']);
 
+             // on retourne les données avec les données du carousel.
 
-            return view('home', ['series' => $dataSeries, 'movies' => $dataMovies,'dataSeries' => $dataSeries, 'dataMovies' => $dataMovies]);
+            return view('home', ['series' => $dataSeries, 'movies' => $dataMovies,
+                'dataSeries' => $dataSeries, 'dataMovies' => $dataMovies,
+            ]);
         }
     }
 }

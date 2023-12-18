@@ -54,7 +54,7 @@ class CarouselController extends Controller
 
 
 
-            return view('home', ['dataSeries' => $dataSeries, 'dataMovies' => $dataMovies]);
+            return view('home', ['newSeries' => $dataSeries, 'newMovies' => $dataMovies]);
 
 
 
