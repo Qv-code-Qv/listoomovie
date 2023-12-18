@@ -48,7 +48,7 @@ class HomeController extends Controller
             $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true)['results']);
 
 
-            return view('home', ['series' => $dataSeries, 'movies' => $dataMovies]);
+            return view('home', ['series' => $dataSeries, 'movies' => $dataMovies,'dataSeries' => $dataSeries, 'dataMovies' => $dataMovies]);
         }
     }
 }

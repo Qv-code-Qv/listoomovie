@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Carousel;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\View;
+
 
 
 use Illuminate\Http\Request;
@@ -50,7 +52,12 @@ class CarouselController extends Controller
             $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true)['results']);
 
 
-             view('home', ['newSeries' => $dataSeries, 'newMovies' => $dataMovies]);
+
+
+            return view('home', ['dataSeries' => $dataSeries, 'dataMovies' => $dataMovies]);
+
+
+
 
         }
 
