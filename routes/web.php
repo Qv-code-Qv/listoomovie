@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\movies\MoviesController;
 use App\Http\Controllers\series\SeriesController;
+use App\Http\Controllers\Carousel\CarouselController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,13 @@ Route::group(['prefix' => 'movies'], function () {
 Route::group(['prefix' => 'series'], function () {
 
     Route::get('/', [SeriesController::class, 'show'])->name('series.series.show');
+
+});
+
+/*Carousel*/
+Route::group(['prefix' => 'carousel'], function () {
+
+    Route::get('/', [CarouselController::class, 'show'])->name('carousel.carousel.show');
 
 });
 

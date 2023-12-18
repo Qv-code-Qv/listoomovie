@@ -5,7 +5,7 @@
 ])
 
 @section('content')
-    @include('layouts.carousel')
+@include('layouts.carousel', ['newSeries' => $newSeries, 'newMovies' => $newMovies])
     <section class="product spad">
         <div class="row">
             <div class="col-lg-8">
@@ -24,21 +24,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__text">
-
-                                    <ul>
-                                        @foreach($series->take(8) as $serie)
-                                        <li>
-                                            <img src="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}" alt="{{ $serie['name'] }}">
-                                            {{ $serie['name'] }}
-                                        </li>
-                                    @endforeach
-                                    </ul>
-                                </div>
+                        @foreach ($series->take(12) as $serie)
+                            <div class="col-md-3">
+                                <img src="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}"
+                                    alt="{{ $serie['name'] }}">
+                                <p style="color: white">{{ $serie['name'] }}</p>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-----------------------FILMS POPULAIRES----------->
                     <div class="row">
@@ -54,21 +46,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-
-                                <div class="product__item__text">
-                                    <ul>
-
-                                        @foreach ($movies->take(2) as $movie)
-                                            <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
-                                                alt="{{ $movie['title'] }}">
-                                            <li>{{ $movie['original_title'] }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                        @foreach ($movies->take(12) as $movie)
+                            <div class="col-md-3">
+                                <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
+                                    alt="{{ $movie['title'] }}">
+                                <p style="color: white">{{ $movie['original_title'] }}</p>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
