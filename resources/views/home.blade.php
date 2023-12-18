@@ -5,7 +5,7 @@
 ])
 
 @section('content')
-@include('layouts.carousel', ['dataSeries' => $dataSeries, 'dataMovies' => $dataMovies])
+@include('layouts.carousel')
     <section class="product spad">
         <div class="row">
             <div class="col-lg-8">
