@@ -41,10 +41,5 @@ Route::group(['prefix' => 'series'], function () {
 
 });
 
-/*Carousel*/
-Route::group(['prefix' => 'carousel'], function () {
 
-    Route::get('/', [CarouselController::class, 'show'])->name('carousel.carousel.show');
-
-});
 
