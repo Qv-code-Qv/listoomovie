@@ -2,7 +2,7 @@
 
 <section class="hero">
     <div class="hero__slider owl-carousel">
-        @foreach ($dataSeries->take(8) as $index => $serie)
+        @foreach ($dataSeries->take(4) as $serie)
             <div class="hero__items set-bg" data-setbg="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}">
                 <div class="row">
                     <div class="col-lg-6">
