@@ -20,8 +20,8 @@ class HomeController extends Controller
     {
 
         $token = env('TMDB_API_KEY');
-        $urlSeries = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=fr-FR&page=1&sort_by=primary_release_date.desc';
-        $urlMovies = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_null_first_air_dates=false&language=fr-FR&page=1&sort_by=primary_release_date.desc';
+        $urlSeries = 'https://api.themoviedb.org/3/tv/popular?language=fr-FR&page=1';
+        $urlMovies = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1';
 
         // Series.
 
@@ -47,7 +47,30 @@ class HomeController extends Controller
             $dataSeries = Collection::make(json_decode($responseSeries->getBody(), true)['results']);
             $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true)['results']);
 
-             // on retourne les données avec les données du carousel.
+            $content = [$dataMovies, $dataSeries];
+
+            // Triez le contenu par date de sortie décroissante
+            // Triez le contenu par date de sortie décroissante
+            usort($content, function ($a, $b) {
+                $dateA = $a['release_date'] ?? $a['first_air_date'] ?? null;
+                $dateB = $b['release_date'] ?? $b['first_air_date'] ?? null;
+
+                if ($dateA === null && $dateB === null) {
+                    return 0;
+                }
+
+                if ($dateA === null) {
+                    return 1;
+                }
+
+                if ($dateB === null) {
+                    return -1;
+                }
+
+                return strtotime($dateB) - strtotime($dateA);
+            });
+
+            // on retourne les données avec les données du carousel.
 
             return view('home', ['series' => $dataSeries, 'movies' => $dataMovies,
                 'dataSeries' => $dataSeries, 'dataMovies' => $dataMovies,
