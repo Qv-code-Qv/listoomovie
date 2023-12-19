@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Top;
 
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 class TopController extends Controller
@@ -18,7 +17,7 @@ class TopController extends Controller
      * @throws Exception
      */
 
-    public function show(Request $request)
+    public function show()
     {
 
         $token = env('TMDB_API_KEY');
