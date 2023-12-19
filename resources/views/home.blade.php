@@ -5,9 +5,9 @@
 ])
 
 @section('content')
-<!-----------------------CAROUSEL----------->
-@include('layouts.carousel')
-<!---------------------------------->
+    <!-----------------------CAROUSEL----------->
+    @include('layouts.carousel')
+    <!---------------------------------->
     <section class="product spad">
         <div class="row">
             <div class="col-lg-8">
