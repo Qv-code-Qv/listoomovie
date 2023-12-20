@@ -46,8 +46,8 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li><a href="{{ route('movies.movies.show') }}">Movies</a></li>
-                                <li ><a href="{{ route('series.series.show') }}">Series</a></li>
+                                <li><a href="{{ route('movies.movies') }}">Movies</a></li>
+                                <li ><a href="{{ route('series.series') }}">Series</a></li>
                             </ul>
                         </nav>
                     </div>

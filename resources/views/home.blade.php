@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="btn__all">
-                                <a href="{{ route('series.series.show') }}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                <a href="{{ route('series.series') }}" class="primary-btn">View All <span class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="btn__all">
-                                <a href="{{ route('movies.movies.show') }}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                <a href="{{ route('movies.movies') }}" class="primary-btn">View All <span class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>

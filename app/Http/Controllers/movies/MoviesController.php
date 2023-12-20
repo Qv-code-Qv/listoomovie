@@ -77,4 +77,14 @@ class MoviesController extends Controller
         }
     }
 
+    public function show_details(Request $request){
+
+
+
+        // on retourne les données
+
+        return view('movies.details_movies');
+
+    }
+
 }

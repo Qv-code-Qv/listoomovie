@@ -77,4 +77,13 @@ class SeriesController extends Controller
 
     }
 
+    public function show_details(Request $request)
+    {
+
+        // on retourne les données
+
+        return view('series.details_series');
+
+    }
+
 }
