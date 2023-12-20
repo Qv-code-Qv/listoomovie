@@ -31,13 +31,13 @@
                         {{-- Boutons suivants et précédents --}}
                         @if ($page > 1)
                             <a href="{{ route('series.series.show', ['page' => $page - 1]) }}"
-                                class="btn btn-primary">Précédent</a>
+                                class="btn btn-primary"><span class="arrow_left"></span></a>
                         @endif
 
 
                         @if (isset($totalPages) && $page < $totalPages)
                             <a href="{{ route('series.series.show', ['page' => $page + 1]) }}"
-                                class="btn btn-primary">Suivant</a>
+                                class="btn btn-primary"><span class="arrow_right"></span></a>
                         @endif
                     </div>
                 </div>
