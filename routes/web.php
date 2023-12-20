@@ -40,4 +40,3 @@ Route::group(['prefix' => 'series'], function () {
 });
 
 Route::get('/series_details', [SeriesController::class, 'show_details'])->name('series.details_series');
-

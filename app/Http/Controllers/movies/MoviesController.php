@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Movies;
+
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
-use Illuminate\Support\Collection;
-
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class MoviesController extends Controller
 {
-        /**
+    /**
      * Page d'acceuil du site
      *
      * @use /
@@ -19,7 +18,8 @@ class MoviesController extends Controller
      * @throws Exception
      */
 
-     public function show(Request $request){
+    public function show(Request $request)
+    {
 
         // Récupérer le numéro de la page actuelle à partir de la requête
         $page = $request->input('page', 1);
@@ -44,8 +44,6 @@ class MoviesController extends Controller
 
             $dataMovies = Collection::make(json_decode($responseSeries->getBody(), true)['results']);
             $totalPages = json_decode($responseSeries->getBody(), true)['total_pages'];
-
-
 
             $content = [$dataMovies];
 
@@ -72,14 +70,13 @@ class MoviesController extends Controller
 
             // on retourne les données
 
-            return view('movies.movies', ['movies' => $dataMovies,'page' => $page,'totalPages' => $totalPages]);
+            return view('movies.movies', ['movies' => $dataMovies, 'page' => $page, 'totalPages' => $totalPages]);
 
         }
     }
 
-    public function show_details(Request $request){
-
-
+    public function show_details(Request $request)
+    {
 
         // on retourne les données
 
