@@ -75,7 +75,7 @@ class MoviesController extends Controller
         }
     }
 
-    public function show_details(int $id)
+    public function show_details($id)
     {
 
         $token = env('TMDB_API_KEY');
@@ -96,7 +96,7 @@ class MoviesController extends Controller
 
         // on retourne les données
 
-        return view('movies.details_movies', ['movie' => $dataMovies,'id' => $id,]);
+        return view('movies.details_movies', ['movie' => $dataMovies]);
 
     }
 

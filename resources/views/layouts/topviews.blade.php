@@ -4,19 +4,21 @@
             <div class="section-title">
                 <h5>Top Movies</h5>
             </div>
-
             @foreach ($dataMovies->take(4) as $movie)
                 <div class="filter__gallery">
-                    <div class="product__sidebar__view__item set-bg mix day years"
-                        data-setbg="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}">
+                    <div class="filter__gallery">
+                        <div class="product__sidebar__view__item set-bg mix day years">
 
-                        <h5><a href="#">{{ $movie['original_title'] }}</a></h5>
+                            <a href="{{ route('movies.details_movies', ['id' => $movie['id']]) }}" class="btn">
+                                <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
+                                    alt="{{ $movie['original_title'] }}">
+                                <h5 style="color: white">{{ $movie['original_title'] }}</h5>
+                            </a>
+                        </div>
+
                     </div>
+                </div>
             @endforeach
-
         </div>
     </div>
 </div>
-
-
-
