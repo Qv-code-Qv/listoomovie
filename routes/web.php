@@ -28,9 +28,10 @@ Route::group([], function () {
 Route::group(['prefix' => 'movies'], function () {
 
     Route::get('/', [MoviesController::class, 'show'])->name('movies.movies');
+
 });
 
-Route::get('/movies_details', [MoviesController::class, 'show_details'])->name('movies.details_movies');
+Route::get('/{id}', [MoviesController::class, 'show_details'])->name('movies.details_movies');
 
 /*Series*/
 Route::group(['prefix' => 'series'], function () {

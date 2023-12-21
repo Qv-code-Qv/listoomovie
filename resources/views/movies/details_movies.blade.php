@@ -13,24 +13,19 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-8 col-sm-8">
                             <div class="section-title">
-                                <h4>MOVIES</h4>
+                                <h4>{{ $movie['original_title'] }}</h4>
                             </div>
                         </div>
-
                     </div>
                     <div class="row">
-                        {{--  @foreach ($movies as $movie)
-                            <div class="col-md-3">
-                                <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
-                                    alt="{{ $movie['original_title'] }}">
-                                <p style="color: white">{{ $movie['original_title'] }}</p>
-                            </div>
-                        @endforeach --}}
+                        <div class="col-md-3">
+                            <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
+                                alt="{{ $movie['original_title'] }}">
+                            <p style="color: white">{{ $movie['overview'] }}</p>
+                        </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </section>
 @endsection

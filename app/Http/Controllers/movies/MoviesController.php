@@ -33,7 +33,7 @@ class MoviesController extends Controller
         // Movies.
 
         $client = new Client();{
-            $responseSeries = $client->get($urlMovies, [
+            $responseMovies = $client->get($urlMovies, [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $token,
                     'Accept' => 'application/json',
@@ -42,8 +42,8 @@ class MoviesController extends Controller
 
             // Maintenant, on stocke les données.
 
-            $dataMovies = Collection::make(json_decode($responseSeries->getBody(), true)['results']);
-            $totalPages = json_decode($responseSeries->getBody(), true)['total_pages'];
+            $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true)['results']);
+            $totalPages = json_decode($responseMovies->getBody(), true)['total_pages'];
 
             $content = [$dataMovies];
 
@@ -75,13 +75,30 @@ class MoviesController extends Controller
         }
     }
 
-    public function show_details(Request $request)
+    public function show_details(int $id)
     {
+
+        $token = env('TMDB_API_KEY');
+        $urlMovies = "https://api.themoviedb.org/3/movie/{$id}?language=fr-FR";
+
+        // Movies.
+
+        $client = new Client();{
+            $responseMovies = $client->get($urlMovies, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $token,
+                    'Accept' => 'application/json',
+                ],
+            ]);
+
+            $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true));
+
 
         // on retourne les données
 
-        return view('movies.details_movies');
+        return view('movies.details_movies', ['movie' => $dataMovies,'id' => $id,]);
 
     }
 
+}
 }
