@@ -29,9 +29,11 @@
                     <div class="row">
                         @foreach ($series->take(12) as $serie)
                             <div class="col-md-3">
-                                <img src="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}"
-                                    alt="{{ $serie['name'] }}">
-                                <p style="color: white">{{ $serie['name'] }}</p>
+                                <a href="{{ route('series.details_series', ['id' => $serie['id']]) }}" class="btn">
+                                    <img src="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}"
+                                        alt="{{ $serie['name'] }}">
+                                    <p style="color: white">{{ $serie['name'] }}</p>
+                                </a>
                             </div>
                         @endforeach
                     </div>
