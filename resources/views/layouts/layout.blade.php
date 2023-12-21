@@ -15,14 +15,14 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ url('css/bootstrap.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url('css/font-awesome.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url('css/elegant-icons.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url('css/plyr.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url('css/nice-select.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url('css/owl.carousel.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url('css/slicknav.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url('sass/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/elegant-icons.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/plyr.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('sass/style.css') }}" type="text/css">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
                 <div class="col-lg-2">
                     <div class="header__logo">
                         <a href="{{ route('home') }}">
-                            <img src="img/logo2.png" alt="">
+                            <img src="{{ asset('img/logo2.png') }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         <nav class="header__menu mobile-menu">
                             <ul>
                                 <li><a href="{{ route('movies.movies') }}">Movies</a></li>
-                                <li ><a href="{{ route('series.series') }}">Series</a></li>
+                                <li><a href="{{ route('series.series') }}">Series</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -78,19 +78,19 @@
             <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
         </div>
         <div class="container">
-                <div class="col-lg-3">
-                    <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i class="fa fa-heart"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
+            <div class="col-lg-3">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved | This template is made with <i class="fa fa-heart"
+                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
 
-                </div>
             </div>
+        </div>
         </div>
     </footer>
     <!-- Footer Section End -->
@@ -107,14 +107,16 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/player.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/player.js') }}"></script>
+    <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('js/mixitup.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+
+
 
 </body>
 

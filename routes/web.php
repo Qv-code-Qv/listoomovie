@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+
 /*Home*/
 
 Route::group([], function () {
@@ -28,16 +29,29 @@ Route::group([], function () {
 Route::group(['prefix' => 'movies'], function () {
 
     Route::get('/', [MoviesController::class, 'show'])->name('movies.movies');
+    Route::get('/{id}', [MoviesController::class, 'show_details'])->name('movies.details_movies');
+
+
 
 });
 
-Route::get('/{id}', [MoviesController::class, 'show_details'])->name('movies.details_movies');
+
+
+
+
+
+
 
 /*Series*/
 Route::group(['prefix' => 'series'], function () {
 
     Route::get('/', [SeriesController::class, 'show'])->name('series.series');
+    Route::get('/{id}', [SeriesController::class, 'show_details'])->name('series.details_series');
+
 
 });
 
-Route::get('/series_details', [SeriesController::class, 'show_details'])->name('series.details_series');
+
+
+
+

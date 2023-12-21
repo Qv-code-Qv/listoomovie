@@ -8,7 +8,7 @@
                     <div class="col-lg-6">
                         <div class="hero__text">
                             <h2>{{ $serie['name'] }}</h2>
-                            <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                            <a href="{{ route('series.details_series', ['id' => $serie['id']]) }}"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>

@@ -44,8 +44,6 @@ class SeriesController extends Controller
             $dataSeries = Collection::make(json_decode($responseSeries->getBody(), true)['results']);
             $totalPages = json_decode($responseSeries->getBody(), true)['total_pages'];
 
-
-
             $content = [$dataSeries];
 
             // Triez le contenu par date de sortie décroissante
@@ -71,19 +69,37 @@ class SeriesController extends Controller
 
             // on retourne les données
 
-            return view('series.series', ['series' => $dataSeries,'page' => $page,'totalPages' => $totalPages]);
+            return view('series.series', ['series' => $dataSeries, 'page' => $page, 'totalPages' => $totalPages]);
 
         }
 
     }
 
-    public function show_details(Request $request)
+    public function show_details($id)
     {
 
-        // on retourne les données
+        $token = env('TMDB_API_KEY');
+        $urlSeries = "https://api.themoviedb.org/3/tv/{$id}?language=fr-FR";
 
-        return view('series.details_series');
 
+        // Movies.
+
+        $client = new Client();{
+            $responseSeries = $client->get($urlSeries, [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $token,
+                    'Accept' => 'application/json',
+                ],
+            ]);
+
+            $dataSeries = Collection::make(json_decode($responseSeries->getBody(), true));
+
+            // on retourne les données
+
+            return view('series.details_series', ['serie' => $dataSeries]);
+
+
+        }
     }
 
 }
