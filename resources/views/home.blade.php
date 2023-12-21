@@ -21,7 +21,8 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="btn__all">
-                                <a href="{{ route('series.series') }}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                <a href="{{ route('series.series') }}" class="primary-btn">View All <span
+                                        class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -43,16 +44,19 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="btn__all">
-                                <a href="{{ route('movies.movies') }}" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                <a href="{{ route('movies.movies') }}" class="primary-btn">View All <span
+                                        class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         @foreach ($movies->take(12) as $movie)
                             <div class="col-md-3">
-                                <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
-                                    alt="{{ $movie['title'] }}">
-                                <p style="color: white">{{ $movie['original_title'] }}</p>
+                                <a href="{{ route('movies.details_movies', ['id' => $movie['id']]) }}" class="btn">
+                                    <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
+                                        alt="{{ $movie['title'] }}">
+                                    <p style="color: white">{{ $movie['original_title'] }}</p>
+                                </a>
                             </div>
                         @endforeach
                     </div>
