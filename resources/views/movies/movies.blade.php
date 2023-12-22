@@ -21,23 +21,25 @@
                     <div class="row">
                         @foreach ($movies as $movie)
                             <div class="col-md-3">
-                                <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
-                                    alt="{{ $movie['original_title'] }}">
-                                <p style="color: white">{{ $movie['original_title'] }}</p>
+                                <a href="{{ route('movies.details_movies', ['id' => $movie['id']]) }}" class="btn">
+                                    <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
+                                        alt="{{ $movie['original_title'] }}">
+                                    <p style="color: white">{{ $movie['original_title'] }}</p>
+                                </a>
                             </div>
                         @endforeach
                     </div>
                     <div class="d-flex justify-content-center" style="gap: 10px;">
                         {{-- Boutons suivants et précédents --}}
                         @if ($page > 1)
-                            <a href="{{ route('movies.movies', ['page' => $page - 1]) }}"
-                                class="btn btn-primary"><span class="arrow_left"></span></a>
+                            <a href="{{ route('movies.movies', ['page' => $page - 1]) }}" class="btn btn-primary"><span
+                                    class="arrow_left"></span></a>
                         @endif
 
 
                         @if (isset($totalPages) && $page < $totalPages)
-                            <a href="{{ route('movies.movies', ['page' => $page + 1]) }}"
-                                class="btn btn-primary"><span class="arrow_right"></span></a>
+                            <a href="{{ route('movies.movies', ['page' => $page + 1]) }}" class="btn btn-primary"><span
+                                    class="arrow_right"></span></a>
                         @endif
                     </div>
                 </div>

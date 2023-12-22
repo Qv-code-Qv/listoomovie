@@ -16,28 +16,29 @@
                                 <h4>SERIES</h4>
                             </div>
                         </div>
-
                     </div>
                     <div class="row">
                         @foreach ($series as $serie)
                             <div class="col-md-3">
-                                <img src="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}"
-                                    alt="{{ $serie['name'] }}">
-                                <p style="color: white">{{ $serie['name'] }}</p>
+                                <a href="{{ route('series.details_series', ['id' => $serie['id']]) }}" class="btn">
+                                    <img src="https://image.tmdb.org/t/p/w500/{{ $serie['poster_path'] }}"
+                                        alt="{{ $serie['name'] }}">
+                                    <p style="color: white">{{ $serie['name'] }}</p>
+                                </a>
                             </div>
                         @endforeach
                     </div>
                     <div class="d-flex justify-content-center" style="gap: 10px;">
                         {{-- Boutons suivants et précédents --}}
                         @if ($page > 1)
-                            <a href="{{ route('series.series', ['page' => $page - 1]) }}"
-                                class="btn btn-primary"><span class="arrow_left"></span></a>
+                            <a href="{{ route('series.series', ['page' => $page - 1]) }}" class="btn btn-primary"><span
+                                    class="arrow_left"></span></a>
                         @endif
 
 
                         @if (isset($totalPages) && $page < $totalPages)
-                            <a href="{{ route('series.series', ['page' => $page + 1]) }}"
-                                class="btn btn-primary"><span class="arrow_right"></span></a>
+                            <a href="{{ route('series.series', ['page' => $page + 1]) }}" class="btn btn-primary"><span
+                                    class="arrow_right"></span></a>
                         @endif
                     </div>
                 </div>
