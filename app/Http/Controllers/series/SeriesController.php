@@ -69,7 +69,8 @@ class SeriesController extends Controller
 
             // on retourne les données
 
-            return view('series.series', ['series' => $dataSeries, 'page' => $page, 'totalPages' => $totalPages]);
+            return view('series.series', ['series' => $dataSeries, 'page' => $page,
+            'totalPages' => $totalPages]);
 
         }
 
@@ -93,6 +94,7 @@ class SeriesController extends Controller
             ]);
 
             $dataSeries = Collection::make(json_decode($responseSeries->getBody(), true));
+
 
             // on retourne les données
 

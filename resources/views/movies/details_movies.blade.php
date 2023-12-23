@@ -22,7 +22,7 @@
                             <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}"
                                 alt="{{ $movie['original_title'] }}" style="height:50%">>
                             <div class="section-title" style="padding-top: 2em;">
-                                <h4>resume ({{ $movie['vote_average'] }})</h4>
+                                <h4>SYNOPSIS & INFO ({{ $movie['vote_average'] }})</h4>
                                 <div style="padding-top: 2em;">
                                     <p style="color: white">{{ $movie['overview'] }}</p>
                                 </div>
