@@ -24,7 +24,11 @@
                             <div class="section-title" style="padding-top: 2em;">
                                 <h4>SYNOPSIS & INFO ({{ $movie['vote_average'] }})</h4>
                                 <div style="padding-top: 2em;">
-                                    <p style="color: white">{{ $movie['overview'] }}</p>
+                                    <p style="color: white">
+                                        Depuis le : {{ \Carbon\Carbon::parse($movie['release_date'])->format('d-m-Y') }}
+                                        <br><br>
+                                        {{ $movie['overview'] }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
