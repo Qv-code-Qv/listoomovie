@@ -97,7 +97,7 @@ class MoviesController extends Controller
 
         // on retourne les données
 
-        return view('movies.details_movies', ['movie' => $dataMovies]);
+        return view('movies.details_movies', compact('dataMovies'));
 
     }
 

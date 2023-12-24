@@ -98,7 +98,7 @@ class SeriesController extends Controller
 
             // on retourne les données
 
-            return view('series.details_series', ['serie' => $dataSeries]);
+            return view('series.details_series', compact('dataSeries'));
 
 
         }
