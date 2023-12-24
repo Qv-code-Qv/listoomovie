@@ -38,6 +38,13 @@
                                             @endif
                                             <!-- Ajoute une virgule sauf pour le dernier élément -->
                                         @endforeach
+                                        @foreach ($dataSeries['genres'] as $genre)
+                                            {{ $genre['name'] }}
+                                            @if (!$loop->last)
+                                                ,
+                                            @endif
+                                            <!-- Ajoute une virgule sauf pour le dernier élément -->
+                                        @endforeach
                                         <br><br>
                                         {{ $dataSeries['overview'] }}
                                     </p>
