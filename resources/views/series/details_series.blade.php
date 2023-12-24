@@ -24,14 +24,22 @@
                             <div class="section-title" style="padding-top: 2em;">
                                 <h4>SYNOPSIS & INFO ({{ $serie['vote_average'] }})</h4>
                                 <div style="padding-top: 2em;">
-
                                     <p style="color: white">
-                                        Depuis le : {{ \Carbon\Carbon::parse($serie['first_air_date'])->format('d-m-Y') }}
+                                        <span style="font-weight : bold; color :#e53637"> Depuis le :
+                                        </span>{{ \Carbon\Carbon::parse($serie['first_air_date'])->format('d-m-Y') }}
+                                        <br>
+                                        @foreach ($serie['genres'] as $genre)
+                                            {{ $genre['name'] }}
+                                            @if (!$loop->last)
+                                                ,
+                                            @endif
+                                            <!-- Ajoute une virgule sauf pour le dernier élément -->
+                                        @endforeach
                                         <br><br>
-                                        {{ $serie['overview'] }}</p>
+                                        {{ $serie['overview'] }}
+                                    </p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

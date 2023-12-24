@@ -75,7 +75,7 @@ class MoviesController extends Controller
         }
     }
 
-    public function show_details($id)
+    public function showDetails($id)
     {
 
         $token = env('TMDB_API_KEY');
@@ -92,6 +92,7 @@ class MoviesController extends Controller
             ]);
 
             $dataMovies = Collection::make(json_decode($responseMovies->getBody(), true));
+
 
 
         // on retourne les données

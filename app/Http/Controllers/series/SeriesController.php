@@ -76,7 +76,7 @@ class SeriesController extends Controller
 
     }
 
-    public function show_details($id)
+    public function showDetails($id)
     {
 
         $token = env('TMDB_API_KEY');

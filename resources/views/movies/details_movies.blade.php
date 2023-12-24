@@ -25,10 +25,21 @@
                                 <h4>SYNOPSIS & INFO ({{ $movie['vote_average'] }})</h4>
                                 <div style="padding-top: 2em;">
                                     <p style="color: white">
-                                        Depuis le : {{ \Carbon\Carbon::parse($movie['release_date'])->format('d-m-Y') }}
+                                        <span style="font-weight : bold; color :#e53637">Date de sortie :
+                                        </span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('d-m-Y') }}
+                                        <br>
+                                        @foreach ($movie['genres'] as $genre)
+                                            {{ $genre['name'] }}
+                                            @if (!$loop->last)
+                                                ,
+                                            @endif
+                                            <!-- Ajoute une virgule sauf pour le dernier élément -->
+                                        @endforeach
                                         <br><br>
                                         {{ $movie['overview'] }}
                                     </p>
+
+
                                 </div>
                             </div>
                         </div>
