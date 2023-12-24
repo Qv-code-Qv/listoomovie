@@ -25,7 +25,7 @@
                                 <h4>SYNOPSIS & INFO ({{ $dataMovies['vote_average'] }})</h4>
                                 <div style="padding-top: 2em;">
                                     <p style="color: white">
-                                        <span style="font-weight : bold; color :#e53637">Date de sortie :
+                                        <span style="font-weight : bold; color :#e53637">Date de sortie:
                                         </span>{{ \Carbon\Carbon::parse($dataMovies['release_date'])->format('d-m-Y') }}
                                         <br>
                                         @foreach ($dataMovies['genres'] as $genre)

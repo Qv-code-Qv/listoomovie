@@ -28,6 +28,9 @@
                                         <span style="font-weight : bold; color :#e53637"> Depuis le :
                                         </span>{{ \Carbon\Carbon::parse($dataSeries['first_air_date'])->format('d-m-Y') }}
                                         <br>
+                                        <span style="font-weight : bold; color :#e53637">Pays d'origine : </span>
+                                        {{ is_array($dataSeries['origin_country']) ? implode(', ', $dataSeries['origin_country']) : $dataSeries['origin_country'] }}
+                                        <br>
                                         @foreach ($dataSeries['genres'] as $genre)
                                             {{ $genre['name'] }}
                                             @if (!$loop->last)
