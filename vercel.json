@@ -1,14 +1,16 @@
 {
     "version": 2,
     "builds": [
-      { "src": "public/**", "use": "@vercel/static-build" },
-      { "src": "/api/index.php", "use": "@vercel/php" }
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
       { "handle": "filesystem" },
       {
         "src": "/(.*)",
-        "dest": "/api/index.php"
+        "dest": "/server.js"
       }
     ]
   }
