@@ -10,8 +10,8 @@ Consult the information of a serie or a film (name, synopsis, genre, release dat
 
 # Technologies Used
 
-- a Bootstrap template
-- the Laravel Framework
+- Bootstrap template
+- Laravel Framework
 - themoviedb API
 
 ## Video :
