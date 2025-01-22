@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('sass/style.css') }}" type="text/css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body>
