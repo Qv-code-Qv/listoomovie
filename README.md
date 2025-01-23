@@ -13,6 +13,7 @@ Consult the information of a serie or a film (name, synopsis, genre, release dat
 - Laravel Framework (PHP)
 - Bootstrap template (CSS)
 - themoviedb API
+- Heroku
 
 ## Video :
 https://www.linkedin.com/feed/update/urn:li:activity:7143195624119681024/?originTrackingId=dOoRtxTPQZiq4L3yeVipkA%3D%3D
