@@ -20,7 +20,7 @@ class CarouselController extends Controller
     public function show()
     {
 
-        $token = env('TMDB_API_KEY');
+        $token = config('services.tmdb.api_key');
         $newSeries = 'https://api.themoviedb.org/3/tv/on_the_air?language=fr-FR'; // Endpoint pour les nouvelles séries
         $newMovies = 'https://api.themoviedb.org/3/movie/now_playing'; // Endpoint pour les nouveaux films
 

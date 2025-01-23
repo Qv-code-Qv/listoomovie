@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $token = env('TMDB_API_KEY');
+        $token = config('services.tmdb.api_key');
         $urlSeries = 'https://api.themoviedb.org/3/tv/popular?language=fr-FR&page=1';
         $urlMovies = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1';
 

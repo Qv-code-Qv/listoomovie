@@ -26,7 +26,7 @@ class SeriesController extends Controller
         // Vérifier que la page est dans la plage valide (1 à 500)
         $page = max(1, min(500, $page));
 
-        $token = env('TMDB_API_KEY');
+        $token = config('services.tmdb.api_key');
         $urlSeries = "https://api.themoviedb.org/3/tv/popular?language=fr-FR&page=$page";
 
         // Series.
@@ -79,7 +79,7 @@ class SeriesController extends Controller
     public function showDetails($id)
     {
 
-        $token = env('TMDB_API_KEY');
+        $token = config('services.tmdb.api_key');
         $urlSeries = "https://api.themoviedb.org/3/tv/{$id}?language=fr-FR";
 
 

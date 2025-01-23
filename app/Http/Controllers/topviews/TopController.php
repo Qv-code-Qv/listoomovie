@@ -20,7 +20,7 @@ class TopController extends Controller
     public function show()
     {
 
-        $token = env('TMDB_API_KEY');
+        $token = config('services.tmdb.api_key');
         $topSeries = 'https://api.themoviedb.org/3/tv/popular?language=fr-FR&page=1'; // Endpoint pour les séries populaires
         $topMovies = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1'; // Endpoint pour les films populaires
 
