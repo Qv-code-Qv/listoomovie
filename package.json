@@ -11,6 +11,7 @@
         "postcss": "^8.1.14",
         "vite": "^5.4.14"
     },
+    "type": "module",
     "dependencies": {
         "bootstrap": "^4.4.1"
     },
